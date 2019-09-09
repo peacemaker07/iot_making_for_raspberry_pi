@@ -1,0 +1,12 @@
+[Unit]
+Description=celery worker
+After=syslog.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/pi/iot_making_for_raspberry_pi/
+ExecStart=/home/pi/iot_making_for_raspberry_pi/start_celery_worker.sh
+Restart=always
+
+[Install]
+WantedBy = multi-user.target

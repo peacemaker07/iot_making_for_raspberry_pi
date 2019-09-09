@@ -1,2 +1,6 @@
 utils/grove_pi.py
 utils/light.py
+
+certs/
+
+!.gitkeep

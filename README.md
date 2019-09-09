@@ -63,3 +63,26 @@ $ curl -kL dexterindustries.com/update_grovepi | bash
 $ cd Firmware
 bash firmware_update.sh
 ```
+
+### celeryを使用してShadowのやりとりを行う
+
+#### 準備
+
+```
+# redis インストール
+$ sudo apt-get install redis-server
+
+# ライブラリインストール
+$ cd [リポジトリルート]
+$ pip3 install -r requirements.txt
+
+# サービス化
+$ sudo ln -s /home/pi/iot_making_for_raspberry_pi/celery_worker.service /etc/systemd/system/celery_worker.service
+$ sudo systemctl enable celery_worker
+```
+
+#### 実行
+
+```
+$ python3 main_shadow_by_aws_iot.py -e [エンドポイント] -r [ルート証明書パス] -c [デバイス証明書パス] -k [プライベートキーパス] -id [client id]
+```
