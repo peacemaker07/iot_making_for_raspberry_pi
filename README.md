@@ -1,17 +1,25 @@
 IoT Making for RaspberryPi
 ====
 
-Raspberry Pi, SORACOMを使っての
+Raspberry Piを使って以下を行う場合の実装例を集めたリポジトリ
+
+- センサからのデータ取得（Grove Systemを使用）
+- クラウドへのデータ送信
 
 ## Description
 
-- Raspberry Pi
+### 使用するもの
+
+- Raspberry Pi (必須)
   - Board : Raspberry Pi 3 Model B
   - OS : Raspbian Stretch Lite
   - Python : 3.5
-- [SORACOM](https://www.amazon.co.jp/dp/B01G1GSYHW)
+- [SORACOM](https://www.amazon.co.jp/dp/B01G1GSYHW) (任意)
   - SIM
   - USBドングル AK-020
+- GrovePi (任意)
+
+### 実装例
 
 ## Demo
 
@@ -53,16 +61,8 @@ $ sudo raspistill -o image.jpg
 
 Github : https://github.com/DexterInd/GrovePi
 
-```
-# Install
-$ pwd
-/home/pi
-$ curl -kL dexterindustries.com/update_grovepi | bash
-...
-
-$ cd Firmware
-bash firmware_update.sh
-```
+インストールはこちらを参照
+https://github.com/DexterInd/GrovePi/tree/master/Software/Python
 
 ### celeryを使用してShadowのやりとりを行う
 
