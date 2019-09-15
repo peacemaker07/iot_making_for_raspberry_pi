@@ -1,7 +1,7 @@
 IoT Making for RaspberryPi
 ====
 
-Raspberry Piを使って以下を行う場合の実装例を集めたリポジトリ
+Raspberry Piを使ってIoTするとき実装集
 
 - センサからのデータ取得（Grove Systemを使用）
 - クラウドへのデータ送信
@@ -10,18 +10,22 @@ Raspberry Piを使って以下を行う場合の実装例を集めたリポジ�
 
 ### 使用するもの
 
-- Raspberry Pi (必須)
+- Raspberry Pi
   - Board : Raspberry Pi 3 Model B
   - OS : Raspbian Stretch Lite
   - Python : 3.5
-- [SORACOM](https://www.amazon.co.jp/dp/B01G1GSYHW) (任意)
+- [SORACOM](https://www.amazon.co.jp/dp/B01G1GSYHW)
   - SIM
   - USBドングル AK-020
-- GrovePi (任意)
+- GrovePi
 
 ### 実装例
 
-## Demo
+- 実装済み
+  - Grove Piから取得したデータをSORACOM経由でAWS IoT Coreへ送信
+  - celeryを使用してShadowのやりとりを行う(AWS IoT SDK 使用版)
+- 実装中
+  - celeryを使用してShadowのやりとりを行う(SORACOM 使用版)
 
 ## Requirement
 
@@ -34,7 +38,26 @@ Raspberry Piを使って以下を行う場合の実装例を集めたリポジ�
 - [wvdial](https://dev.soracom.io/jp/start/device_setting/#raspi_usb)
 - [pppd](https://qiita.com/CLCL/items/95693f6a8daefc73ddaa)
 
+### GrovePi
+
+Github : https://github.com/DexterInd/GrovePi
+
+インストールはこちらを参照
+- https://github.com/DexterInd/GrovePi/tree/master/Software/Python
+
 ## Usage
+
+#### Grove Piから取得したデータをSORACOM経由でAWS IoT Coreへ送信
+
+- 前提
+  - Grove Systemが使用できるようになっていること
+  - SORACOMとオンラインになっていること
+  - SORACOM Beamを使用しAWS IoT Coreへの転送設定ができていること
+
+```python
+$ cd [リポジトリルート]
+$ python3 main_environment.py
+```
 
 ### カメラモジュールを使用する
 
@@ -57,14 +80,7 @@ supported=1 detected=1
 $ sudo raspistill -o image.jpg
 ```
 
-### GrovePi
-
-Github : https://github.com/DexterInd/GrovePi
-
-インストールはこちらを参照
-https://github.com/DexterInd/GrovePi/tree/master/Software/Python
-
-### celeryを使用してShadowのやりとりを行う
+### celeryを使用してShadowのやりとりを行う(AWS IoT SDK使用版)
 
 #### 準備
 
