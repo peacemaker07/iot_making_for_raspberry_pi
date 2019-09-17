@@ -48,7 +48,6 @@ def main():
         # センシング情報を送信
         now = datetime.now()
         json_dict = {
-            'timestamp': UnixTime.date_time2unix_time(now),
             'temp': temp,
             'humi': humi,
             'lux': lux,
@@ -57,7 +56,9 @@ def main():
         }
         comm_mqtt = CommMqtt(host, port)
         msg_environment = MsgEnvironment(imsi, now)
+        comm_mqtt.connect()
         result = comm_mqtt.publish(msg_environment, buf=json_dict)
+        comm_mqtt.disconnect()
 
         # shadow update
         if sensor_shadow.delta_dict:
