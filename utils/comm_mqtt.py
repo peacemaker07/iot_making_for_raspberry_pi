@@ -69,7 +69,7 @@ class CommMqtt:
                 continue
 
             # Publish
-            result = self.publish(msg_obj, idx=idx, buf=buf)
+            result = self.publish(msg_obj, buf=buf, idx=idx)
             if result:
                 send_ok_buf_list.append(buf)
             else:
@@ -77,7 +77,7 @@ class CommMqtt:
 
         return send_ok_buf_list, send_ng_buf_list
 
-    def publish(self, msg_obj, idx=0, buf=None):
+    def publish(self, msg_obj, buf=None, idx=0):
         """
         Publishの実行
         :param msg_obj: 送信メッセージオブジェクト

@@ -1,3 +1,4 @@
+import copy
 from utils.unix_time import UnixTime
 
 
@@ -62,15 +63,10 @@ class MsgEnvironment(BaseMessage):
     def create_pub_data(self, buf, idx):
 
         # 送信メッセージの各項目に送信データを設定する
-        send_data = {
+        send_data = copy.deepcopy(buf)
+        send_data.update({
             "timestamp": UnixTime.date_time2unix_time(self.sent_date_time, ms=idx),
-            'temp': buf.temp,
-            'humi': buf.humi,
-            'lux': buf.lux,
-            'pressure': buf.pressure,
-            'moisture': buf.moisture,
-            'position': buf.position,
-        }
+        })
 
         return send_data
 
