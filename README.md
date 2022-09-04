@@ -24,8 +24,8 @@ Raspberry Piを使ってIoTするとき実装集
 - 実装済み
   - Grove Piから取得したデータをSORACOM経由でAWS IoT Coreへ送信
   - celeryを使用してShadowのやりとりを行う(AWS IoT SDK 使用版)
-- 実装中
   - celeryを使用してShadowのやりとりを行う(SORACOM 使用版)
+  - 写真を撮影してS3へアップロード(SORACOM 使用版)(TODO:README追記)
 
 ## Requirement
 
