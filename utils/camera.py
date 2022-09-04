@@ -89,7 +89,7 @@ class Camera:
         now = datetime.now()
         if now.minute == 0:
             return True
-        if now.minute / 10 % self.shadow.shoot_timing:
+        if now.minute / 10 % self.shadow.shoot_timing == 0:
             return True
 
         return False
