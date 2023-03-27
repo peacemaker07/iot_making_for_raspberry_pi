@@ -1,7 +1,7 @@
 paho-mqtt==1.4.0
 requests==2.22.0
 AWSIoTPythonSDK==1.4.7
-redis==3.3.8
+redis==4.5.3
 celery==4.3.0
 picamera==1.13
 boto3==1.9.243
